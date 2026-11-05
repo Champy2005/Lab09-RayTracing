@@ -1,0 +1,15 @@
+Run: P2-bvh
+Started: 2026-11-05T20:12:34+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe --bvh --out evidence/images/part-2/P2-bvh.png
+
+  mesh           torus knot, 1024 triangles, smooth normals
+  bvh            sah split: 1111 nodes, 556 leaves, depth 27, built in 1.3 ms
+  threads        24
+  time           68.0 ms
+  rays / pixel   10.917
+  tests / ray    3.5 triangle tests
+  nodes / ray    8.7 BVH nodes visited
+  saved          evidence/images/part-2/P2-bvh.png
+
+Exit code: 0

@@ -1,0 +1,450 @@
+diff --git a/student/mesh.cpp b/student/mesh.cpp
+index 054540f..97a2352 100644
+--- a/student/mesh.cpp
++++ b/student/mesh.cpp
+@@ -1,30 +1,154 @@
+-#include "student.h"
++#include "student.h" // Import mesh, hit, ray, vector, and instrumentation declarations.
+ 
+-#include <algorithm>
+-#include <cmath>
++#include <algorithm> // Provide min, max, and swap for interval and traversal ordering.
++#include <array> // Provide a fixed-size traversal stack without allocating for every ray.
++#include <cmath> // Provide fabs for the two-sided determinant test.
++#include <limits> // Provide infinity for unbounded slab intervals.
+ 
+-// TASK 2a: Moller-Trumbore (DEF-10.01): does r hit the triangle at t > EPS? Write t, u, v.
+-bool ray_triangle(const Ray& r, const vec3& v0, const vec3& v1, const vec3& v2,
+-                  float& t, float& u, float& v) {
+-  task_not_done("2a");
+-  return false;
+-}
++#include "core/bvh.h" // Read the provided builder's maximum depth to size the stack safely.
+ 
+-// TASK 2b: the closest triangle of m below t_max, testing every one (count_triangle_test()).
+-// Fill hit.t, hit.tri and hit.n.
+-bool intersect_mesh(const Ray& r, const Mesh& m, float t_max, Hit& hit) {
+-  task_not_done("2b");
+-  return false;
+-}
++namespace { // Keep the shared hit-writing helper private to this translation unit.
++void store_hit(const Mesh& m, int triangle, float t, float u, float v, Hit& hit) { // Use identical hit data for brute force and BVH.
++  const auto& indices = m.tris[size_t(triangle)]; // Look up the triangle's three vertex indices.
++  hit.t = t; // Save the closest accepted distance.
++  hit.tri = triangle; // Preserve the original triangle ID, also used for path-tracer materials.
++  if(!m.normals.empty()) { // Interpolate smooth normals when the mesh supplies them.
++    hit.n = normalize(m.normals[size_t(indices[0])] * (1.0f - u - v) // Weight the first normal by its barycentric coordinate.
++                    + m.normals[size_t(indices[1])] * u // Weight the second normal by u.
++                    + m.normals[size_t(indices[2])] * v); // Weight the third by v, then restore unit length.
++  } else { // Without vertex normals, each triangle is a flat surface.
++    const vec3 e1 = m.positions[size_t(indices[1])] - m.positions[size_t(indices[0])]; // First edge from vertex zero.
++    const vec3 e2 = m.positions[size_t(indices[2])] - m.positions[size_t(indices[0])]; // Second edge from vertex zero.
++    hit.n = normalize(cross(e1, e2)); // The winding determines the geometric face normal.
++  } // End normal selection; scene_intersect or pt_intersect supplies hit.p later.
++} // End store_hit.
++} // End private helper namespace.
+ 
+-// TASK 2c (optional): the slab test (EQ-10.03). inv_d is 1 / r.d; write the entry distance.
+-bool ray_aabb(const Ray& r, const vec3& inv_d, const AABB& box, float t_max, float& t_entry) {
+-  task_not_done("2c");
+-  return false;
+-}
++// TASK 2a, Equation 6: solve for ray distance and barycentric coordinates with Moller-Trumbore.
++bool ray_triangle(const Ray& r, const vec3& v0, const vec3& v1, const vec3& v2, // Read the ray and three triangle vertices.
++                  float& t, float& u, float& v) { // Output parameters are committed only after all hit checks pass.
++  const vec3 e1 = v1 - v0; // First triangle edge.
++  const vec3 e2 = v2 - v0; // Second triangle edge.
++  const vec3 h = cross(r.d, e2); // Cross product used in Cramer's rule.
++  const float determinant = dot(e1, h); // Its sign records the side from which the ray approaches.
++  if(std::fabs(determinant) < 1e-8f) { // Accept both windings; reject parallel rays and degenerate triangles.
++    return false; // Dividing by a nearly zero determinant would be unstable.
++  } // End determinant check.
++  const float inverse = 1.0f / determinant; // Reuse one division for t, u, and v.
++  const vec3 s = r.o - v0; // Ray-origin displacement from triangle vertex zero.
++  const float candidate_u = dot(s, h) * inverse; // Barycentric weight of vertex one.
++  if(candidate_u < 0.0f || candidate_u > 1.0f) { // This coordinate must lie on the triangle's unit interval.
++    return false; // The ray crosses the plane outside the first pair of edges.
++  } // End u check.
++  const vec3 q = cross(s, e1); // Second cross product needed by Cramer's rule.
++  const float candidate_v = dot(r.d, q) * inverse; // Barycentric weight of vertex two.
++  if(candidate_v < 0.0f || candidate_u + candidate_v > 1.0f) { // The remaining weight 1-u-v must also be nonnegative.
++    return false; // The crossing lies outside another triangle edge.
++  } // End v check.
++  const float candidate_t = dot(e2, q) * inverse; // Distance parameter along the ray to the triangle plane.
++  if(candidate_t <= EPS) { // Reject intersections behind or too close to the origin.
++    return false; // Avoid immediately hitting the surface from which a new ray starts.
++  } // End forward-distance check.
++  t = candidate_t; // Commit the valid ray distance.
++  u = candidate_u; // Return the already-computed interpolation coordinate.
++  v = candidate_v; // Return the second interpolation coordinate at no extra intersection cost.
++  return true; // All three barycentric weights and the distance are valid.
++} // End ray_triangle.
+ 
+-// TASK 2d (optional): TASK 2b through m.bvh (count_node_visit() for every node).
+-bool intersect_bvh(const Ray& r, const Mesh& m, float t_max, Hit& hit) {
+-  task_not_done("2d");
+-  return false;
+-}
++// TASK 2b: brute-force closest-hit search, used by the Cornell box as well as Part II.
++bool intersect_mesh(const Ray& r, const Mesh& m, float t_max, Hit& hit) { // Accept hits strictly closer than t_max.
++  bool found = false; // Start with no accepted triangle.
++  float nearest = t_max; // Each hit tightens the distance limit for later candidates.
++  for(size_t triangle = 0; triangle < m.tris.size(); ++triangle) { // Test every triangle, including ones behind an earlier hit.
++    const auto& indices = m.tris[triangle]; // Retrieve the three indices into the position array.
++    float t = 0, u = 0, v = 0; // Reserve the candidate distance and barycentric coordinates.
++    count_triangle_test(); // Count exactly one test for this triangle, even on a miss.
++    if(ray_triangle(r, m.positions[size_t(indices[0])], m.positions[size_t(indices[1])], // Test the first two vertices...
++                    m.positions[size_t(indices[2])], t, u, v) && t < nearest) { // ...and third, keeping only a closer intersection.
++      nearest = t; // Tighten the closest-hit bound.
++      store_hit(m, int(triangle), t, u, v, hit); // Save its triangle ID and smooth or flat unit normal.
++      found = true; // Remember that hit now contains a valid result.
++    } // End candidate acceptance.
++  } // End all-triangle loop.
++  return found; // False leaves the caller's hit unused.
++} // End intersect_mesh.
++
++// TASK 2c, Equation 7: intersect the ray with the x, y, and z box slabs.
++bool ray_aabb(const Ray& r, const vec3& inv_d, const AABB& box, float t_max, float& t_entry) { // inv_d caches 1/d.
++  float entry = -std::numeric_limits<float>::infinity(); // Allow the ray origin to be inside the box.
++  float exit = t_max; // Clip the box interval to the closest triangle or caller's limit.
++  for(int axis = 0; axis < 3; ++axis) { // Intersect one interval for each coordinate axis.
++    if(r.d[axis] == 0.0f) { // A parallel ray needs special handling to avoid 0 times infinity producing NaN.
++      if(r.o[axis] < box.lo[axis] || r.o[axis] > box.hi[axis]) { // A parallel origin outside the slab never enters it.
++        return false; // The entire box is missed.
++      } // End outside-parallel-slab check.
++      continue; // An origin inside a parallel slab adds no distance restriction.
++    } // End parallel-axis handling.
++    float near_t = (box.lo[axis] - r.o[axis]) * inv_d[axis]; // Distance to this axis's first plane.
++    float far_t = (box.hi[axis] - r.o[axis]) * inv_d[axis]; // Distance to its opposite plane.
++    if(near_t > far_t) { // Negative directions encounter the high plane first.
++      std::swap(near_t, far_t); // Put this slab's distances into near/far order.
++    } // End interval ordering.
++    entry = std::max(entry, near_t); // We enter the box only after entering every slab.
++    exit = std::min(exit, far_t); // We leave as soon as any slab is exited.
++    if(entry > exit) { // Disjoint intervals cannot describe a point inside the box.
++      return false; // Reject this box before examining more axes.
++    } // End interval-overlap check.
++  } // End slab loop.
++  t_entry = entry; // Return the geometric entry distance, possibly negative for an interior origin.
++  return exit > 0.0f && entry <= t_max; // The overlap must extend forward and begin within the distance limit.
++} // End ray_aabb.
++
++// TASK 2d: visit nearer BVH children first, pruning boxes beyond the current closest triangle.
++bool intersect_bvh(const Ray& r, const Mesh& m, float t_max, Hit& hit) { // Traverse the tree built by core/bvh.cpp.
++  if(m.bvh.nodes.empty()) { // An empty tree contains no triangles to intersect.
++    return false; // Avoid reading a nonexistent root.
++  } // End empty-tree check.
++  const vec3 inv_d{1.0f / r.d.x, 1.0f / r.d.y, 1.0f / r.d.z}; // Reuse reciprocals for every box; ray_aabb handles zero directions.
++  std::array<int, BVH_MAX_DEPTH + 2> stack{}; // A depth-first binary traversal needs at most one deferred sibling per level.
++  int pending = 0; // Track the next free stack position.
++  stack[size_t(pending++)] = 0; // Begin with the root node.
++  bool found = false; // No closest triangle has been accepted yet.
++  float nearest = t_max; // Initially use the caller's distance limit.
++  while(pending > 0) { // Continue until every potentially useful node has been processed.
++    const int index = stack[size_t(--pending)]; // Pop the most recently scheduled node.
++    count_node_visit(); // Count each popped node once, including one subsequently pruned.
++    const BVHNode& node = m.bvh.nodes[size_t(index)]; // Read this node's box and leaf/child metadata.
++    float entry = 0; // Receive this box's entry distance.
++    if(!ray_aabb(r, inv_d, node.box, nearest, entry)) { // Retest with the latest, possibly shorter, nearest distance.
++      continue; // A miss or a farther box cannot improve the hit.
++    } // End node pruning.
++    if(node.count > 0) { // Positive count identifies a leaf containing an ordered triangle range.
++      for(int i = node.first; i < node.first + node.count; ++i) { // Examine just this leaf's triangles.
++        const int triangle = m.bvh.order[size_t(i)]; // Convert the builder's permutation back to the original triangle ID.
++        const auto& indices = m.tris[size_t(triangle)]; // Get the triangle's three vertex indices.
++        float t = 0, u = 0, v = 0; // Reserve this candidate's distance and interpolation coordinates.
++        count_triangle_test(); // Count only triangles actually tested in reached leaves.
++        if(ray_triangle(r, m.positions[size_t(indices[0])], m.positions[size_t(indices[1])], // Test two vertices...
++                        m.positions[size_t(indices[2])], t, u, v) && t < nearest) { // ...and the third, rejecting farther hits.
++          nearest = t; // Tighten all future node and triangle distance tests.
++          store_hit(m, triangle, t, u, v, hit); // Produce the same kind of hit as brute force.
++          found = true; // Remember that the return value should report a hit.
++        } // End closest-leaf-hit update.
++      } // End leaf triangle loop.
++      continue; // Leaves have no children to schedule.
++    } // End leaf handling.
++    int left = index + 1; // The builder places the left subtree immediately after its parent.
++    int right = node.right; // The right subtree has an explicit index because the left subtree has variable size.
++    float left_entry = 0, right_entry = 0; // Compare entry distances to choose traversal order.
++    const bool hit_left = ray_aabb(r, inv_d, m.bvh.nodes[size_t(left)].box, nearest, left_entry); // Test the left child.
++    const bool hit_right = ray_aabb(r, inv_d, m.bvh.nodes[size_t(right)].box, nearest, right_entry); // Test the right child.
++    if(hit_left && hit_right) { // Both children may contain a closer triangle.
++      if(left_entry > right_entry) { // Arrange the two indices so left now denotes the nearer child.
++        std::swap(left, right); // Only scheduling order changes; the tree itself is untouched.
++      } // End near-child selection.
++      stack[size_t(pending++)] = right; // Push the farther child first because the stack is last-in, first-out.
++      stack[size_t(pending++)] = left; // The nearer child will be popped next and may shorten nearest.
++    } else if(hit_left) { // Only the original left box is reachable.
++      stack[size_t(pending++)] = left; // Schedule that child alone.
++    } else if(hit_right) { // Only the original right box is reachable.
++      stack[size_t(pending++)] = right; // Schedule that child alone.
++    } // If neither box is hit, this branch needs no more work.
++  } // End stack traversal.
++  return found; // Return whether any triangle improved the caller's distance limit.
++} // End intersect_bvh.
+diff --git a/student/pathtracer.cpp b/student/pathtracer.cpp
+index 9660bb1..d646f39 100644
+--- a/student/pathtracer.cpp
++++ b/student/pathtracer.cpp
+@@ -1,28 +1,92 @@
+-#include "student.h"
++#include "student.h" // Import the scene, ray, RNG, vector, and student-function declarations.
+ 
+-#include <algorithm>
+-#include <cmath>
++#include <algorithm> // Provide max and clamp for cosines and roulette probabilities.
++#include <cmath> // Provide sqrt, cos, and sin for hemisphere sampling.
++#include <limits> // Provide infinity for unconstrained closest-hit queries.
+ 
+-// TASK 3a: a unit direction around n with density cos(theta) / pi.
+-vec3 cosine_sample_hemisphere(const vec3& n, float u1, float u2) {
+-  task_not_done("3a");
+-  return n;
+-}
++// TASK 3a, Equation 11: lift a uniform disk sample to obtain density cos(theta)/pi.
++vec3 cosine_sample_hemisphere(const vec3& n, float u1, float u2) { // n is a unit normal; u1 and u2 are independent uniforms.
++  const float radius = std::sqrt(u1); // The square root accounts for the disk's area growing as radius squared.
++  const float phi = 2.0f * PI * u2; // Uniformly choose the azimuth around the disk.
++  const float x = radius * std::cos(phi); // First local tangent coordinate.
++  const float y = radius * std::sin(phi); // Second local tangent coordinate.
++  const float z = std::sqrt(std::max(0.0f, 1.0f - u1)); // Lift onto the upper unit hemisphere, protecting against roundoff.
++  vec3 tangent, bitangent; // Reserve the other two orthonormal world-space basis vectors.
++  make_basis(n, tangent, bitangent); // The provided robust routine uses n as the local z axis.
++  return normalize(tangent * x + bitangent * y + n * z); // Rotate the sample into world space and preserve unit ray directions.
++} // End cosine_sample_hemisphere.
+ 
+-// TASK 3b: the light reaching hit straight from one random point on the lamp.
+-vec3 sample_light(const Hit& hit, const PtScene& scene, Rng& rng) {
+-  task_not_done("3b");
+-  return vec3{0, 0, 0};
+-}
++// TASK 3b, Equation 12: one area-light sample estimates the directly arriving radiance.
++vec3 sample_light(const Hit& hit, const PtScene& scene, Rng& rng) { // The hit normal has already been oriented toward the incident ray.
++  const float u1 = rng.next(); // Draw the first lamp-area coordinate in a specified evaluation order.
++  const float u2 = rng.next(); // Draw the independent second coordinate.
++  const vec3 point = scene.light.corner + scene.light.e1 * u1 + scene.light.e2 * u2; // Uniformly sample the lamp parallelogram.
++  const vec3 origin = hit.p + hit.n * EPS; // Begin the shadow ray slightly above the receiving surface.
++  const vec3 to_light = point - origin; // Aim from the offset origin to prevent the lamp from shadowing itself.
++  const float distance_squared = dot(to_light, to_light); // Use the same origin for the inverse-square geometry factor.
++  if(distance_squared <= 0.0f) { // A zero-length segment has no valid unit direction.
++    return vec3{0, 0, 0}; // Reject this degenerate sample.
++  } // End segment-length check.
++  const float distance = std::sqrt(distance_squared); // Convert squared distance to segment length.
++  const vec3 direction = to_light / distance; // Normalize the direction used by both visibility and cosine tests.
++  const float cos_surface = dot(hit.n, direction); // Receiver projection onto the shadow direction.
++  const float cos_light = -dot(direction, scene.light.normal()); // Emitter projection; the lamp emits only from its downward face.
++  if(cos_surface <= 0.0f || cos_light <= 0.0f) { // Either back-facing endpoint contributes no light.
++    return vec3{0, 0, 0}; // Avoid an unnecessary visibility ray for a zero contribution.
++  } // End cosine checks.
++  Hit blocker; // Reserve a possible occluding triangle.
++  if(pt_intersect(Ray{origin, direction}, scene, distance - EPS, blocker)) { // Stop before the sampled lamp point itself.
++    return vec3{0, 0, 0}; // Visibility V is zero when another surface blocks the segment.
++  } // End shadow check.
++  const vec3 albedo = pt_material(scene, hit).albedo; // Read the receiver's diffuse reflectance, not its Whitted material.
++  const float weight = cos_surface * cos_light * scene.light.area() / (PI * distance_squared); // BRDF 1/pi, geometry, and reciprocal area PDF.
++  return albedo * scene.light.emission * weight; // Return rho/pi * Le * cos(theta_x)*cos(theta_l)/d^2 * A.
++} // End sample_light.
+ 
+-// TASK 3c: Russian roulette (EQ-10.08): false stops the path.
+-bool russian_roulette(vec3& throughput, int bounce, Rng& rng) {
+-  task_not_done("3c");
+-  return true;
+-}
++// TASK 3c, Equation 13: randomly terminate weak paths and compensate every surviving weight.
++bool russian_roulette(vec3& throughput, int bounce, Rng& rng) { // bounce is zero-based, so bounce 3 is the fourth surface.
++  if(bounce < 3) { // Preserve the first three surfaces without any roulette.
++    return true; // Early light transport is useful enough to keep unconditionally.
++  } // End minimum-bounce check.
++  const float q = std::clamp(1.0f - luminance(throughput), 0.05f, 0.95f); // Use accumulated path importance with bounded termination probability.
++  if(rng.next() < q) { // Terminate with probability q.
++    return false; // This path contributes no further bounces.
++  } // End random termination.
++  throughput /= 1.0f - q; // Weight survivors by inverse survival probability to preserve the expectation.
++  return true; // Continue tracing this compensated path.
++} // End russian_roulette.
+ 
+-// TASK 3d: the light arriving along r, following one path.
+-vec3 path_trace(const Ray& r, const PtScene& scene, Rng& rng, const PtOptions& opt) {
+-  task_not_done("3d");
+-  return vec3{0, 0, 0};
+-}
++// TASK 3d: a single Monte Carlo path accumulates direct illumination at each diffuse bounce.
++vec3 path_trace(const Ray& r, const PtScene& scene, Rng& rng, const PtOptions& opt) { // The caller averages many such camera samples.
++  Ray current = r; // Track the ray that reaches the next surface.
++  vec3 throughput{1, 1, 1}; // Start with unit RGB transport weight from the camera.
++  vec3 result{0, 0, 0}; // Accumulate radiance along this one path.
++  for(int bounce = 0; bounce < opt.max_depth; ++bounce) { // A finite safety depth bounds work even with roulette disabled.
++    Hit hit; // Reserve the next closest surface intersection.
++    if(!pt_intersect(current, scene, std::numeric_limits<float>::infinity(), hit)) { // The Cornell scene has no luminous environment.
++      break; // Escaping rays add no further light.
++    } // End scene-miss handling.
++    if(dot(hit.n, current.d) > 0.0f) { // Diffuse surfaces are shaded on the side from which the ray arrived.
++      hit.n = -hit.n; // Make the normal face the incident ray before sampling its hemisphere.
++    } // End normal orientation.
++    const PtMaterial& material = pt_material(scene, hit); // Obtain this triangle's diffuse albedo and emitted radiance.
++    if(std::max(material.emission.x, std::max(material.emission.y, material.emission.z)) > 0.0f) { // The only emissive surface is the lamp.
++      if((bounce == 0 || !opt.nee) && dot(current.d, scene.light.normal()) < 0.0f) { // Count front-face emission once: directly visible or without NEE.
++        result += throughput * material.emission; // Add emission weighted by every preceding bounce and roulette survival.
++      } // End permitted-emission contribution.
++      break; // The lamp is terminal, including its non-emitting back face.
++    } // End lamp handling.
++    if(opt.nee) { // Explicitly sample the lamp at every diffuse surface when NEE is enabled.
++      result += throughput * sample_light(hit, scene, rng); // Add direct light; sample_light already includes this surface's albedo.
++    } // End direct-light estimate.
++    const float u1 = rng.next(); // Draw the bounce's radial sample first to make RNG consumption unambiguous.
++    const float u2 = rng.next(); // Draw its azimuth sample second.
++    const vec3 direction = cosine_sample_hemisphere(hit.n, u1, u2); // Importance sample the Lambert cosine factor.
++    current = Ray{hit.p + hit.n * EPS, direction}; // Start the continuation ray on the visible side of the surface.
++    throughput *= material.albedo; // Equation 10 cancels the cosine and pi, leaving only rho per bounce.
++    if(opt.rr && !russian_roulette(throughput, bounce, rng)) { // Optionally terminate after updating accumulated throughput.
++      break; // Direct light already accumulated at this surface remains in result.
++    } // End roulette check.
++  } // End surface-bounce loop.
++  return result; // Return a linear-radiance estimate, before the caller averages and tone maps it.
++} // End path_trace.
+diff --git a/student/raytracer.cpp b/student/raytracer.cpp
+index 2aa5722..bd71609 100644
+--- a/student/raytracer.cpp
++++ b/student/raytracer.cpp
+@@ -1,35 +1,112 @@
+-#include "student.h"
++#include "student.h" // Import the lab's vector, ray, scene, statistics, and function declarations.
+ 
+-#include <algorithm>
+-#include <cmath>
++#include <algorithm> // Provide clamp and max for bounded cosine values and lighting.
++#include <cmath> // Provide tan, sqrt, and pow for camera geometry and shading.
+ 
+-// TASK 1a: the ray from the camera through the centre of pixel (x, y).
+-Ray camera_ray(int x, int y, int width, int height, float fov) {
+-  task_not_done("1a");
+-  return Ray{vec3{0, 0, 0}, vec3{0, 0, -1}};
+-}
++// TASK 1a, Equation 2: send a pinhole-camera ray through the centre of this pixel.
++Ray camera_ray(int x, int y, int width, int height, float fov) { // fov is the vertical field of view in radians.
++  const float scale = std::tan(fov * 0.5f); // Half the image-plane height at distance one.
++  const float aspect = float(width) / float(height); // Widen the image plane to preserve the image's aspect ratio.
++  const float px = (2.0f * (float(x) + 0.5f) / float(width) - 1.0f) * scale * aspect; // Map the pixel centre to camera-space x.
++  const float py = (1.0f - 2.0f * (float(y) + 0.5f) / float(height)) * scale; // Invert screen y so the top row points upward.
++  return Ray{vec3{0, 0, 0}, normalize(vec3{px, py, -1})}; // Start at the eye and look through the plane z = -1.
++} // End camera_ray.
+ 
+-// TASK 1b: the smallest t > EPS where r meets the sphere (EQ-10.02).
+-bool ray_sphere(const Ray& r, const Sphere& s, float& t) {
+-  task_not_done("1b");
+-  return false;
+-}
++// TASK 1b, Equation 3: solve |o + t*d - centre|^2 = radius^2 for the nearest forward hit.
++bool ray_sphere(const Ray& r, const Sphere& s, float& t) { // Write t only when a valid sphere intersection exists.
++  const vec3 oc = r.o - s.center; // Express the ray origin relative to the sphere centre.
++  const float a = dot(r.d, r.d); // Keep the full quadratic so non-unit ray directions also work.
++  const float b = 2.0f * dot(r.d, oc); // The linear coefficient has the direction's sign, including negative z.
++  const float c = dot(oc, oc) - s.radius * s.radius; // Subtract the squared radius from the origin's squared distance.
++  const float discriminant = b * b - 4.0f * a * c; // A negative discriminant means the line misses the sphere.
++  if(a <= 0.0f || discriminant < 0.0f) { // Reject a zero direction or a quadratic with no real roots.
++    return false; // There is no usable intersection.
++  } // End invalid-quadratic check.
++  const float root = std::sqrt(discriminant); // Compute the shared square-root term once.
++  const float near_t = (-b - root) / (2.0f * a); // The smaller root is the sphere's entry point.
++  const float far_t = (-b + root) / (2.0f * a); // The larger root is the exit point, needed inside glass.
++  if(near_t > EPS) { // Prefer the entry if it lies beyond the self-intersection threshold.
++    t = near_t; // Return the nearest valid distance along the ray.
++    return true; // Report a hit.
++  } // End near-root check.
++  if(far_t > EPS) { // When the entry is behind us, the exit may still be ahead.
++    t = far_t; // Return the exit distance for a ray starting inside the sphere.
++    return true; // Report a hit.
++  } // End far-root check.
++  return false; // Both roots are behind or too close to the origin.
++} // End ray_sphere.
+ 
+-// TASK 1c: d reflected about the unit normal n (EQ-10.04).
+-vec3 reflect(const vec3& d, const vec3& n) {
+-  task_not_done("1c");
+-  return vec3{0, 0, 0};
+-}
++// TASK 1c, Equation 4: reverse only the component perpendicular to the surface.
++vec3 reflect(const vec3& d, const vec3& n) { // n must be a unit surface normal.
++  return d - n * (2.0f * dot(d, n)); // Preserve the tangent component and negate the normal component.
++} // End reflect.
+ 
+-// TASK 1c: d refracted through a surface whose normal n points out of the object.
+-// false on total internal reflection.
+-bool refract(const vec3& d, const vec3& n, float ior, vec3& out) {
+-  task_not_done("1c");
+-  return false;
+-}
++// TASK 1c, Equation 4: apply Snell's law at an air/material boundary in either direction.
++bool refract(const vec3& d, const vec3& n, float ior, vec3& out) { // n points out of the object; ior is its refractive index.
++  vec3 normal = n; // Use a local normal so the caller's geometric normal stays unchanged.
++  float cos_i = std::clamp(-dot(d, normal), -1.0f, 1.0f); // Measure the incoming cosine and protect against roundoff.
++  float eta = 1.0f / ior; // Assume entry from air into the material first.
++  if(cos_i < 0.0f) { // A direction aligned with the outward normal is leaving the object.
++    normal = -normal; // Face the interface normal toward the incoming ray.
++    cos_i = -cos_i; // Make the incidence cosine nonnegative after the flip.
++    eta = ior; // Leaving material for air reverses the index ratio.
++  } // End exit-side adjustment.
++  const float k = 1.0f - eta * eta * (1.0f - cos_i * cos_i); // Snell's law gives the squared transmitted cosine.
++  if(k < 0.0f) { // A negative value means the critical angle was exceeded.
++    return false; // Total internal reflection permits no transmitted ray.
++  } // End total-internal-reflection check.
++  out = normalize(d * eta + normal * (eta * cos_i - std::sqrt(k))); // Build and normalize the transmitted direction.
++  return true; // The caller may trace the transmitted ray.
++} // End refract.
+ 
+-// TASK 1d: the colour seen along r: Phong, shadows, reflection, refraction (Whitted).
+-vec3 cast_ray(const Ray& r, const Scene& scene, int depth) {
+-  task_not_done("1d");
+-  return scene.background;
+-}
++// TASK 1d, Equation 5: progressively enable flat colour, Lambert, Phong, shadows, reflection, and refraction.
++vec3 cast_ray(const Ray& r, const Scene& scene, int depth) { // depth counts secondary-ray bounces from the camera.
++  if(depth > MAX_DEPTH) { // Match the handout's strict greater-than depth cutoff.
++    return scene.background; // The Whitted tracer uses sky colour beyond the recursion limit.
++  } // End depth cutoff.
++  Hit hit; // Reserve the closest intersection's position, normal, and material.
++  if(!scene_intersect(r, scene, hit)) { // The framework counts this ray and checks every scene object.
++    return scene.background; // A ray leaving the scene sees the sky immediately.
++  } // End miss check.
++  const Material& material = *hit.material; // Read the material selected by the closest-hit routine.
++  if(STAGE < 2) { // Lesson 1 only identifies which object a camera ray sees.
++    return material.diffuse; // Show each object's unlit diffuse colour.
++  } // End flat-colour stage.
++  float diffuse = 0.0f; // Accumulate Lambert illumination from visible point lights.
++  float specular = 0.0f; // Accumulate white Phong highlights separately from the diffuse colour.
++  for(const Light& light : scene.lights) { // Evaluate each of the three provided point lights.
++    const vec3 light_dir = normalize(light.position - hit.p); // Direction from the hit toward this light.
++    if(STAGE >= 4) { // Lesson 4 adds hard shadows by testing visibility to each lamp.
++      const vec3 origin = hit.p + hit.n * (dot(light_dir, hit.n) < 0.0f ? -EPS : EPS); // Offset onto the outgoing ray's side.
++      const vec3 to_light = light.position - origin; // Aim from the actual offset origin, not the unshifted surface.
++      const float distance = length(to_light); // Measure the segment to the light from that same origin.
++      Hit blocker; // Store a possible occluder, including objects behind the light.
++      if(scene_intersect(Ray{origin, to_light / distance}, scene, blocker) && blocker.t < distance) { // Only nearer geometry blocks the lamp.
++        continue; // This light contributes neither Lambert nor Phong at a shadowed point.
++      } // End visibility check.
++    } // End shadow stage.
++    diffuse += light.intensity * std::max(0.0f, dot(light_dir, hit.n)); // Equation 5: irradiance falls with the incident cosine.
++    if(STAGE >= 3) { // Lesson 3 adds view-dependent specular highlights.
++      const float alignment = std::max(0.0f, -dot(reflect(-light_dir, hit.n), r.d)); // Compare the reflected light with the viewing direction.
++      specular += light.intensity * std::pow(alignment, material.specular_exponent); // A large exponent makes a narrow highlight.
++    } // End specular stage.
++  } // End light loop.
++  vec3 reflected{0, 0, 0}; // Keep reflection black until that lesson is enabled.
++  vec3 transmitted{0, 0, 0}; // Failed transmission also stays black, exposing the lab's dark-wedge limitation.
++  if(STAGE >= 5) { // Lesson 5 adds a recursive mirror ray at every hit, even if its weight is zero.
++    const vec3 direction = normalize(reflect(r.d, hit.n)); // Compute a unit reflected direction.
++    const vec3 origin = hit.p + hit.n * (dot(direction, hit.n) < 0.0f ? -EPS : EPS); // Start on the reflected ray's side of the surface.
++    reflected = cast_ray(Ray{origin, direction}, scene, depth + 1); // Trace one more bounce to find the reflected colour.
++  } // End reflection stage.
++  if(STAGE >= 6) { // Lesson 6 adds Snell refraction alongside reflection.
++    vec3 direction; // refract writes this only if a real transmitted direction exists.
++    if(refract(r.d, hit.n, material.ior, direction)) { // Total internal reflection leaves the transmission term at zero.
++      const vec3 origin = hit.p + hit.n * (dot(direction, hit.n) < 0.0f ? -EPS : EPS); // Entry starts inside; exit starts outside.
++      transmitted = cast_ray(Ray{origin, direction}, scene, depth + 1); // Trace the scene seen through the interface.
++    } // End valid-transmission check.
++  } // End refraction stage.
++  return material.diffuse * (diffuse * material.albedo[0]) // Weight the coloured Lambert contribution.
++       + vec3{1, 1, 1} * (specular * material.albedo[1]) // Add the white Phong contribution.
++       + reflected * material.albedo[2] // Add the material's reflected fraction.
++       + transmitted * material.albedo[3]; // Add its transmitted fraction without redistributing TIR energy.
++} // End cast_ray.

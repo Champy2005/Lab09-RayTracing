@@ -1,0 +1,4 @@
+"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64\link.exe" /nologo /OUT:C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\experiments\shadow-origin-trap\pathtrace.exe C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\experiments\shadow-origin-trap\pathtracer.obj C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\pathtrace.dir\Release\pathtrace_main.obj C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\lab09core.lib
+
+
+Exit code: 0

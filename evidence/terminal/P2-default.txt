@@ -1,0 +1,15 @@
+Run: P2-default
+Started: 2026-11-05T20:09:35+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe
+
+  mesh           torus knot, 1024 triangles, smooth normals
+  intersect      brute force (add --bvh for the BVH)
+  threads        24
+  time           404.5 ms
+  rays / pixel   10.917
+  tests / ray    195.4 triangle tests
+  nodes / ray    0.0 BVH nodes visited
+  saved          out/mesh.png
+
+Exit code: 0

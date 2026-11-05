@@ -1,0 +1,13 @@
+Run: P1-tir-reflect
+Started: 2026-11-05T20:15:12+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/tir-reflect/raytrace.exe --out evidence/images/part-1/P1-tir-reflect.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           9.3 ms
+  rays / pixel   8.801
+  saved          evidence/images/part-1/P1-tir-reflect.png
+
+Exit code: 0

@@ -1,0 +1,13 @@
+Run: P1-ior-one
+Started: 2026-11-05T20:19:17+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/glass-ior-one/raytrace.exe --out evidence/images/part-1/P1-ior-one.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           9.0 ms
+  rays / pixel   9.164
+  saved          evidence/images/part-1/P1-ior-one.png
+
+Exit code: 0

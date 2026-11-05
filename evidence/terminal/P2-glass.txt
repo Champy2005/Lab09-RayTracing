@@ -1,0 +1,15 @@
+Run: P2-glass
+Started: 2026-11-05T20:12:34+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe --glass --out evidence/images/part-2/P2-glass.png
+
+  mesh           torus knot, 1024 triangles, smooth normals, glass
+  intersect      brute force (add --bvh for the BVH)
+  threads        24
+  time           358.1 ms
+  rays / pixel   10.744
+  tests / ray    183.3 triangle tests
+  nodes / ray    0.0 BVH nodes visited
+  saved          evidence/images/part-2/P2-glass.png
+
+Exit code: 0

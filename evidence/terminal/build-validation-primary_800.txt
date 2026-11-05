@@ -1,0 +1,5 @@
+"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64\cl.exe" /nologo /std:c++17 /O2 /EHsc /MD /W4 /permissive- /DNDEBUG /D_CRT_SECURE_NO_WARNINGS /DLAB09_ROOT=\"C:/Users/thana/Documents/Year3/Semester_i/CG/Lab09-RayTracing\" /IC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\student /IC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\src C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\evidence\tools\primary_800.cpp /FoC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\validation\primary_800.obj /FeC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\validation\primary_800.exe C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\lab09core.lib
+
+primary_800.cpp
+
+Exit code: 0

@@ -1,0 +1,15 @@
+Started: 2026-11-05T20:16:32+07:00
+Command: build/validation/primary_800.exe
+
+Primary rays only, knot alone, 16384 triangles, 800 x 600, 24 threads
+brute force repeat 1: build 0.0 ms, render 660.3 ms, tests/ray 5055.829, nodes/ray 0.000
+brute force repeat 2: build 0.0 ms, render 652.5 ms, tests/ray 5055.829, nodes/ray 0.000
+brute force repeat 3: build 0.0 ms, render 653.1 ms, tests/ray 5055.829, nodes/ray 0.000
+bvh median repeat 1: build 6.0 ms, render 4.8 ms, tests/ray 2.709, nodes/ray 6.543
+bvh median repeat 2: build 6.0 ms, render 4.4 ms, tests/ray 2.709, nodes/ray 6.543
+bvh median repeat 3: build 6.0 ms, render 4.3 ms, tests/ray 2.709, nodes/ray 6.543
+bvh sah repeat 1: build 23.7 ms, render 5.6 ms, tests/ray 1.870, nodes/ray 8.395
+bvh sah repeat 2: build 23.7 ms, render 6.1 ms, tests/ray 1.870, nodes/ray 8.395
+bvh sah repeat 3: build 23.7 ms, render 6.4 ms, tests/ray 1.870, nodes/ray 8.395
+
+Exit code: 0

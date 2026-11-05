@@ -1,0 +1,15 @@
+Run: P2-median
+Started: 2026-11-05T20:12:34+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe --bvh --split median --out evidence/images/part-2/P2-median.png
+
+  mesh           torus knot, 1024 triangles, smooth normals
+  bvh            median split: 511 nodes, 256 leaves, depth 8, built in 0.3 ms
+  threads        24
+  time           51.5 ms
+  rays / pixel   10.917
+  tests / ray    3.7 triangle tests
+  nodes / ray    4.9 BVH nodes visited
+  saved          evidence/images/part-2/P2-median.png
+
+Exit code: 0

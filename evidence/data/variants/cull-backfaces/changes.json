@@ -1,0 +1,9 @@
+{
+  "file": "mesh.cpp",
+  "changes": [
+    [
+      "if(std::fabs(determinant) < 1e-8f)",
+      "if(determinant < 1e-8f)"
+    ]
+  ]
+}

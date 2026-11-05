@@ -1,0 +1,49 @@
+{
+  "brute force": {
+    "render_ms": {
+      "slope": 0.8542832358924408,
+      "intercept": -3.607772667029816
+    },
+    "tests_per_ray": {
+      "slope": 0.9944549403085274,
+      "intercept": -1.1231053326666134
+    },
+    "estimated_render_ms_at_10M_320x240": 25890.884659563562
+  },
+  "bvh median": {
+    "render_ms": {
+      "slope": 0.06047870573204875,
+      "intercept": 0.027168913097013036
+    },
+    "tests_per_ray": {
+      "slope": -0.047601591416223825,
+      "intercept": 1.4881089876369586
+    },
+    "log_time_fit": {
+      "intercept_ms": 0.6964912280701745,
+      "ms_per_doubling": 0.08421052631578956
+    },
+    "estimated_render_ms_at_10M_320x240": 2.6546804208458847
+  },
+  "bvh sah": {
+    "render_ms": {
+      "slope": 0.05755359848392991,
+      "intercept": 0.15986683002236524
+    },
+    "tests_per_ray": {
+      "slope": -0.08450785832447186,
+      "intercept": 1.5180095013194537
+    },
+    "log_time_fit": {
+      "intercept_ms": 0.8964912280701738,
+      "ms_per_doubling": 0.08421052631578958
+    },
+    "estimated_render_ms_at_10M_320x240": 2.8546804208458845
+  },
+  "path_seed_0": {
+    "renderer_log_slope": -0.488
+  },
+  "path_seed_1": {
+    "renderer_log_slope": -0.503
+  }
+}

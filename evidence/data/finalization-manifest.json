@@ -1,0 +1,21 @@
+{
+  "report_date": "2026-11-06",
+  "timezone": "Asia/Bangkok",
+  "pdf_pages": 31,
+  "pdf_sha256": "d42117614f330528c3401ed8311be4d41283d798fb29dc9dce9efe462d177f7f",
+  "student_source_sha256": {
+    "student/mesh.cpp": "9130e70a23f43919a9258c23a1d988bebf42003f0830cbdcf7e3ce4e1728e31e",
+    "student/pathtracer.cpp": "20e4c5cd43534409ec2a70836b75b23151c5ea0dba922d6a5e2b17924fdb03c7",
+    "student/raytracer.cpp": "b359eb85c413b0a2a7b59e13f3bca74d38ff602409f7c4b6f8f1a777fd1f5ca6"
+  },
+  "available_ai_prompt_records": 15,
+  "student_prediction_paragraphs_preserved": 5,
+  "prediction_provenance": "Student responses recorded after measurements, retained verbatim with separate technical clarification.",
+  "source_check": "Executable tokens match B1 after excluding comments and whitespace.",
+  "validation": "Release build and 115912 independent checks passed; document checks passed; all PDF pages rendered for visual review.",
+  "missing_information": [
+    "Exact deployed model/version label",
+    "Student-specific AI-log reasoning and independent verification",
+    "Complete referenced Chapter 10 Lab 10 listing"
+  ]
+}

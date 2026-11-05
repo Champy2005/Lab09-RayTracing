@@ -1,0 +1,9 @@
+{
+  "file": "pathtracer.cpp",
+  "changes": [
+    [
+      "if(bounce < 3)",
+      "if(bounce < 0)"
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "refract(r.d, hit.n, material.ior, direction)",
+      "refract(r.d, hit.n, 1.0f, direction)"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+Run: P1-skip-zero-weights
+Started: 2026-11-05T20:15:16+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/skip-zero-weights/raytrace.exe --out evidence/images/part-1/P1-skip-zero-weights.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           4.8 ms
+  rays / pixel   3.566
+  saved          evidence/images/part-1/P1-skip-zero-weights.png
+
+Exit code: 0

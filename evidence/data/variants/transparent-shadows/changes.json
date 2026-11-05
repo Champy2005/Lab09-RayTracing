@@ -1,0 +1,9 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "&& blocker.t < distance)",
+      "&& blocker.t < distance && blocker.material->albedo[3] == 0.0f)"
+    ]
+  ]
+}

@@ -1,0 +1,27 @@
+Run: P2-sweep-3
+Started: 2026-11-05T20:12:36+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe --sweep
+
+  sweep          primary rays only, 320 x 240, the knot alone
+  triangles  method         build ms   render ms   tests/ray  nodes/ray
+       1024  brute force         0.0        10.2       322.0        0.0
+       1024  bvh median          0.3         1.4         3.2        5.4
+       1024  bvh sah             1.3         1.7         2.6        8.3
+       2048  brute force         0.0        18.0       634.2        0.0
+       2048  bvh median          0.6         1.4         3.2        6.1
+       2048  bvh sah             2.7         1.7         2.5        8.7
+       4096  brute force         0.0        32.2      1273.6        0.0
+       4096  bvh median          1.2         1.7         2.9        6.0
+       4096  bvh sah             5.9         1.7         2.2        8.6
+      16384  brute force         0.0       109.9      5056.0        0.0
+      16384  bvh median          6.3         1.5         2.7        6.6
+      16384  bvh sah            24.0         1.8         1.9        8.4
+      65536  brute force           -           -   skipped (slow): extrapolate from the rows above
+      65536  bvh median         25.8         2.0         2.6        7.1
+      65536  bvh sah           102.9         2.2         1.7        8.8
+     262144  brute force           -           -   skipped (slow): extrapolate from the rows above
+     262144  bvh median        118.2         2.5         2.5        7.7
+     262144  bvh sah           435.5         2.2         1.7        9.5
+
+Exit code: 0

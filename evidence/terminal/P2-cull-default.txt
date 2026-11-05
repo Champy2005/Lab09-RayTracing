@@ -1,0 +1,15 @@
+Run: P2-cull-default
+Started: 2026-11-05T20:15:19+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/cull-backfaces/mesh.exe --out evidence/images/part-2/P2-cull-default.png
+
+  mesh           torus knot, 1024 triangles, smooth normals
+  intersect      brute force (add --bvh for the BVH)
+  threads        24
+  time           110.5 ms
+  rays / pixel   9.546
+  tests / ray    79.0 triangle tests
+  nodes / ray    0.0 BVH nodes visited
+  saved          evidence/images/part-2/P2-cull-default.png
+
+Exit code: 0

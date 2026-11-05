@@ -1,0 +1,9 @@
+Run: P1-probe
+Started: 2026-11-05T20:09:34+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/raytrace.exe --probe
+
+  o = (0, 0, 0)  hit at t = 4
+  o = (0, 0, 3)  hit at t = 7
+
+Exit code: 0

@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-11-05T20:23:16+07:00",
+  "base_commit": "3d3361d99d412349f20362b4cd324ca9cb407072",
+  "branch": "main",
+  "revision_description": "Base commit plus uncommitted student implementations; exact source snapshots retained in final-student.",
+  "student_sha256": {
+    "student/mesh.cpp": "cc5a53787f094e209c7e427247e3886eaeb165f178667070f4e5a9d8450ca834",
+    "student/pathtracer.cpp": "de07b725ce5bc46eb37522ced326f6bae8b5b2d456aba16bded5d2f1511e35e6",
+    "student/raytracer.cpp": "4dafa9a4104fef1ddd1afdd34ed0b5df334b1d436f0d129a44b701ca68422467"
+  },
+  "reference_sha256": {
+    "reference/mesh.png": "98d909156e2a23cbf07e855c48df2853aeb4aa238ea0d22371dcd3d21387d1d6",
+    "reference/pathtrace.png": "fce2aa91cedfaf27afe60a6b2dac0255a308ed171be99d4b8c5a42346fab98b3",
+    "reference/pathtrace_ref.pfm": "93969965815394c9a8ad3af0b3270501c6a8682a2e023949623991f22ec3e260",
+    "reference/raytrace.png": "4027f6bfa1ef35a9ffba4cbb455cd28cb7bea7bbc6b10c2a953e1f2f5cd8b33d"
+  },
+  "cpu": "Intel Core Ultra 9 275HX",
+  "physical_cores": 24,
+  "logical_threads": 24,
+  "experiment_threads": 24,
+  "compiler": "MSVC 19.51.36257.0",
+  "cmake": "4.3.1-msvc1",
+  "generator": "Visual Studio 18 2026, x64",
+  "os": "Microsoft Windows 11 Home Single Language 10.0.26200",
+  "build": "Release, C++17",
+  "prediction_status": "Student explicitly deferred all predictions until later. Measurements were run with prediction fields still blank."
+}

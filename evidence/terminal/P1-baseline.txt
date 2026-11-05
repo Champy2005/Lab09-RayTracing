@@ -1,0 +1,10 @@
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           1.6 ms
+  rays / pixel   0.000
+  saved          evidence/images/part-1/P1-baseline.png
+  TASK 1a not done
+  TASK 1b not done
+  TASK 1c not done
+  TASK 1d not done

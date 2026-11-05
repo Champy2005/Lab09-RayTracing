@@ -1,0 +1,5 @@
+"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64\cl.exe" /nologo /std:c++17 /O2 /EHsc /MD /W4 /permissive- /DNDEBUG /D_CRT_SECURE_NO_WARNINGS /DLAB09_ROOT=\"C:/Users/thana/Documents/Year3/Semester_i/CG/Lab09-RayTracing\" /IC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\student /IC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\src C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\evidence\tools\lamp_fraction.cpp /FoC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\validation\lamp_fraction.obj /FeC:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\validation\lamp_fraction.exe C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\lab09core.lib
+
+lamp_fraction.cpp
+
+Exit code: 0

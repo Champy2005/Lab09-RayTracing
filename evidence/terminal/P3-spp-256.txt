@@ -1,0 +1,16 @@
+Run: P3-spp-256
+Started: 2026-11-05T20:12:49+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/pathtrace.exe --spp 256 --out evidence/images/part-3/P3-spp-256.png
+
+  scene          Cornell box, 36 triangles, 256 x 256
+  options        depth 64, next event estimation on, Russian roulette on, eps 0.001
+  threads        24
+  spp            256
+  time           1682.2 ms
+  rays / sample  5.04
+  mean           0.1584  (reference 0.1584)
+  RMSE           0.0054  against the 4096 spp reference, on the 99.2% of the pixels away from the lamp
+  saved          evidence/images/part-3/P3-spp-256.png
+
+Exit code: 0

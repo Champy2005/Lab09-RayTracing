@@ -1,0 +1,13 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "#include <algorithm>",
+      "#include <atomic>\n#include <cstdio>\nnamespace { std::atomic<long long> tir_failures{0}; struct TirReport { ~TirReport() { std::printf(\"Total internal reflection failures: %lld\\n\", tir_failures.load()); } } tir_report; }\n#include <algorithm>"
+    ],
+    [
+      "if(k < 0.0f) {",
+      "if(k < 0.0f) { ++tir_failures;"
+    ]
+  ]
+}

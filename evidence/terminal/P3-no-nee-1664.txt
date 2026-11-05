@@ -1,0 +1,16 @@
+Run: P3-no-nee-1664
+Started: 2026-11-05T20:16:41+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/pathtrace.exe --no-nee --spp 1664 --out evidence/images/part-3/P3-no-nee-1664.png
+
+  scene          Cornell box, 36 triangles, 256 x 256
+  options        depth 64, next event estimation off, Russian roulette on, eps 0.001
+  threads        24
+  spp            1664
+  time           7361.2 ms
+  rays / sample  3.18
+  mean           0.1585  (reference 0.1584)
+  RMSE           0.0211  against the 4096 spp reference, on the 99.2% of the pixels away from the lamp
+  saved          evidence/images/part-3/P3-no-nee-1664.png
+
+Exit code: 0

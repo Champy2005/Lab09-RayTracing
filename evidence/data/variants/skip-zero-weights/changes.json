@@ -1,0 +1,13 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "if(STAGE >= 5) {",
+      "if(STAGE >= 5 && material.albedo[2] > 0.0f) {"
+    ],
+    [
+      "if(STAGE >= 6) {",
+      "if(STAGE >= 6 && material.albedo[3] > 0.0f) {"
+    ]
+  ]
+}

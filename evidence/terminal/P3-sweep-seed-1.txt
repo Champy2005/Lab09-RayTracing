@@ -1,0 +1,17 @@
+Run: P3-sweep-seed-1
+Started: 2026-11-05T20:12:39+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/pathtrace.exe --sweep --seed 1
+
+  scene          Cornell box, 36 triangles, 256 x 256
+  options        depth 64, next event estimation on, Russian roulette on, eps 0.001
+  threads        24
+     spp     time ms       RMSE RMSE x sqrt(spp)   (RMSE without the lamp's pixels)
+       1         9.0     0.0809           0.0809
+       4        26.1     0.0406           0.0813
+      16       100.0     0.0204           0.0817
+      64       394.4     0.0102           0.0814
+     256      1521.7     0.0050           0.0793
+  slope          -0.503  (log RMSE against log spp)
+
+Exit code: 0

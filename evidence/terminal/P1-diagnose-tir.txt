@@ -1,0 +1,14 @@
+Run: P1-diagnose-tir
+Started: 2026-11-05T20:19:21+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/diagnose-tir/raytrace.exe --out evidence/images/part-1/P1-diagnose-tir.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           9.3 ms
+  rays / pixel   8.801
+  saved          evidence/images/part-1/P1-diagnose-tir.png
+Total internal reflection failures: 0
+
+Exit code: 0

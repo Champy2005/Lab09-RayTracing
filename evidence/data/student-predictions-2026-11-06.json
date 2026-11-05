@@ -1,0 +1,13 @@
+{
+  "recorded_date": "2026-11-06",
+  "timezone": "Asia/Bangkok",
+  "status": "Later learning exercise; measured experiments preceded these responses.",
+  "source": "evidence/data/report-before-finalization-2026-11-06.md",
+  "student_text_verbatim": [
+    "“With brute force, I expect render time and triangle tests per ray to increase linearly/multiplicatively? O(mn)? as triangle count increases, because every ray has to check more triangles.”",
+    "“With a BVH, I expect the increase to be increase a bit less aggressive (may be log or something or even grow slower than that like some small term) because a ray can skip all the boxes it doesn't hit and only calculate the triangles that inside the boxes it crosses?.”",
+    "“I expect SAH to cost more to build, but it might be faster? during rendering. I’m uncertain which wins because the overhead might outweighted in some scenarios?.”",
+    "“As spp increases, I expect RMSE to drop asymtoically/logarithmic and slower as it goes and runtime to increase linearly. My reasoning is (have no idea about this) like it use more samples so the variance drop statistically or like don't have to guess much?. Changing the seed should change (also have no idea about this)noise pattern while keeping approximately the same amount of noise.”",
+    "“At 16 spp, I expect disabling NEE to make the image more noisy/speckles because random bounce directions rarely hit the light sources. It may take less time per sample because it doesn't shoot shadow rays, but matching NEE’s error should require higher sample count (I don't know which one would be more efficient in quality/runtime).”"
+  ]
+}

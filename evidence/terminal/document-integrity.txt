@@ -1,0 +1,304 @@
+PASS: Original prediction block preserved verbatim
+PASS: Report has no unfinished continuation marker
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/final-student/
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/runs.jsonl
+PASS: Link exists: docs/report/intermediate-report.md -> ../../instructions-1032980-17933293399497.pdf
+PASS: Link exists: docs/report/intermediate-report.md -> ../ai/ai-log.md
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/README.md
+PASS: Link exists: docs/report/intermediate-report.md -> ../notes/setup.md
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/build-release.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/images/part-1/P1-default.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/images/part-2/P2-default.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/images/part-3/P3-default.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/image-comparisons.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-probe.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-eps-zero.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/ray-eps-tir.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-depth-0.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-depth-1.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-depth-2.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-depth-3.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-depth-4.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/variants/skip-zero-weights/changes.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-skip-zero-weights.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/variants/glass-ior-one/changes.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-restored.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-trace-wedge.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P1-diagnose-tir.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/images/part-1/P1-ior-one.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/ray-stages.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/mesh-sweep-raw.csv
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/mesh-sweep-medians.csv
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/fits.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/mesh-scaling.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/tools/primary_800.cpp
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-primary-800.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-16k-full-bvh.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-flat.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/variants/cull-backfaces/changes.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-cull-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-glass.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P2-cull-glass.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/mesh-normals-culling.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-sweep-seed-0.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-sweep-seed-1.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/path-sweeps.csv
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/path-convergence.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-default.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-nee-16.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-nee-256.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-nee-1024.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-nee-1664.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-nee-1792.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/path-comparisons.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-lamp-fraction.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/tools/lamp_fraction.cpp
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-spp-64.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-no-rr-64.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-rr-first-bounce.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/variants/rr-first-bounce/changes.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-1.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-2.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-3.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-5.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-10.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-spp-64.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/plots/path-depth.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-depth-11.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/variants/shadow-origin-trap/changes.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-spp-64.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/terminal/P3-shadow-origin-trap.txt
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/images/part-3/P3-shadow-origin-trap.png
+PASS: Link exists: docs/report/intermediate-report.md -> ../../instructions-1032980-17933293399497.pdf
+PASS: Link exists: docs/report/intermediate-report.md -> ../../reference/
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/README.md
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/runs.jsonl
+PASS: Link exists: docs/report/intermediate-report.md -> ../../evidence/data/fits.json
+PASS: Link exists: docs/report/intermediate-report.md -> ../ai/ai-log.md
+PASS: Link exists: evidence/README.md -> data/session-manifest.json
+PASS: Link exists: evidence/README.md -> data/runs.jsonl
+PASS: Link exists: evidence/README.md -> ../docs/report/intermediate-report.md
+PASS: Link exists: evidence/README.md -> terminal/P1-probe.txt
+PASS: Link exists: evidence/README.md -> terminal/P1-default.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-default.png
+PASS: Link exists: evidence/README.md -> terminal/P2-default.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-default.png
+PASS: Link exists: evidence/README.md -> terminal/P3-default.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-default.png
+PASS: Link exists: evidence/README.md -> terminal/P1-depth-0.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-depth-0.png
+PASS: Link exists: evidence/README.md -> terminal/P1-depth-1.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-depth-1.png
+PASS: Link exists: evidence/README.md -> terminal/P1-depth-2.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-depth-2.png
+PASS: Link exists: evidence/README.md -> terminal/P1-depth-3.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-depth-3.png
+PASS: Link exists: evidence/README.md -> terminal/P1-depth-4.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-depth-4.png
+PASS: Link exists: evidence/README.md -> terminal/P1-eps-zero.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-eps-zero.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-1.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-1.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-2.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-2.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-3.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-3.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-4.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-4.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-5.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-5.png
+PASS: Link exists: evidence/README.md -> terminal/P1-stage-6.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-stage-6.png
+PASS: Link exists: evidence/README.md -> terminal/P2-flat.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-flat.png
+PASS: Link exists: evidence/README.md -> terminal/P2-glass.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-glass.png
+PASS: Link exists: evidence/README.md -> terminal/P2-bvh.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-bvh.png
+PASS: Link exists: evidence/README.md -> terminal/P2-median.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-median.png
+PASS: Link exists: evidence/README.md -> terminal/P2-sweep-1.txt
+PASS: Link exists: evidence/README.md -> terminal/P2-sweep-2.txt
+PASS: Link exists: evidence/README.md -> terminal/P2-sweep-3.txt
+PASS: Link exists: evidence/README.md -> terminal/P3-sweep-seed-0.txt
+PASS: Link exists: evidence/README.md -> terminal/P3-sweep-seed-1.txt
+PASS: Link exists: evidence/README.md -> terminal/P3-spp-64.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-spp-64.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-rr-64.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-rr-64.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-1.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-1.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-2.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-2.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-3.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-3.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-5.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-5.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-10.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-10.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-nee-16.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-nee-16.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-nee-256.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-nee-256.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-nee-1024.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-nee-1024.png
+PASS: Link exists: evidence/README.md -> terminal/P3-spp-256.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-spp-256.png
+PASS: Link exists: evidence/README.md -> terminal/P1-tir-reflect.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-tir-reflect.png
+PASS: Link exists: evidence/README.md -> data/variants/tir-reflect/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P1-skip-zero-weights.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-skip-zero-weights.png
+PASS: Link exists: evidence/README.md -> data/variants/skip-zero-weights/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P2-cull-default.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-cull-default.png
+PASS: Link exists: evidence/README.md -> data/variants/cull-backfaces/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P2-cull-glass.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-cull-glass.png
+PASS: Link exists: evidence/README.md -> data/variants/cull-backfaces/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P3-rr-first-bounce.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-rr-first-bounce.png
+PASS: Link exists: evidence/README.md -> data/variants/rr-first-bounce/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P3-shadow-origin-trap.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-shadow-origin-trap.png
+PASS: Link exists: evidence/README.md -> data/variants/shadow-origin-trap/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P2-16k-full-bvh.txt
+PASS: Link exists: evidence/README.md -> images/part-2/P2-16k-full-bvh.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-nee-1792.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-nee-1792.png
+PASS: Link exists: evidence/README.md -> terminal/P3-no-nee-1664.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-no-nee-1664.png
+PASS: Link exists: evidence/README.md -> terminal/P1-transparent-shadows.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-transparent-shadows.png
+PASS: Link exists: evidence/README.md -> data/variants/transparent-shadows/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P1-ior-one.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-ior-one.png
+PASS: Link exists: evidence/README.md -> data/variants/glass-ior-one/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P1-diagnose-tir.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-diagnose-tir.png
+PASS: Link exists: evidence/README.md -> data/variants/diagnose-tir/changes.json
+PASS: Link exists: evidence/README.md -> terminal/P1-restored.txt
+PASS: Link exists: evidence/README.md -> images/part-1/P1-restored.png
+PASS: Link exists: evidence/README.md -> terminal/P3-depth-11.txt
+PASS: Link exists: evidence/README.md -> images/part-3/P3-depth-11.png
+PASS: Link exists: evidence/README.md -> terminal/build-release.txt
+PASS: Link exists: evidence/README.md -> terminal/verification.txt
+PASS: Link exists: evidence/README.md -> tools/verify.cpp
+PASS: Link exists: evidence/README.md -> terminal/P2-primary-800.txt
+PASS: Link exists: evidence/README.md -> tools/primary_800.cpp
+PASS: Link exists: evidence/README.md -> terminal/P3-lamp-fraction.txt
+PASS: Link exists: evidence/README.md -> tools/lamp_fraction.cpp
+PASS: Link exists: evidence/README.md -> terminal/P1-trace-wedge.txt
+PASS: Link exists: evidence/README.md -> tools/trace_wedge.cpp
+PASS: Link exists: evidence/README.md -> data/variants/trace-wedge/changes.json
+PASS: Link exists: evidence/README.md -> data/render-results.csv
+PASS: Link exists: evidence/README.md -> data/mesh-sweep-raw.csv
+PASS: Link exists: evidence/README.md -> data/mesh-sweep-medians.csv
+PASS: Link exists: evidence/README.md -> data/path-sweeps.csv
+PASS: Link exists: evidence/README.md -> data/fits.json
+PASS: Link exists: evidence/README.md -> tools/analyze.py
+PASS: Link exists: evidence/README.md -> data/image-comparisons.json
+PASS: Link exists: evidence/README.md -> plots/mesh-scaling.png
+PASS: Link exists: evidence/README.md -> plots/path-convergence.png
+PASS: Link exists: evidence/README.md -> plots/ray-stages.png
+PASS: Link exists: evidence/README.md -> plots/ray-eps-tir.png
+PASS: Link exists: evidence/README.md -> plots/mesh-normals-culling.png
+PASS: Link exists: evidence/README.md -> plots/path-comparisons.png
+PASS: Link exists: evidence/README.md -> plots/path-depth.png
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/ai/ai-log.md -> ../report/intermediate-report.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/README.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/ai/ai-log.md -> ../report/intermediate-report.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/README.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/ai/ai-log.md -> ../report/intermediate-report.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/README.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/ai/ai-log.md -> ../report/intermediate-report.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/README.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/data/session-manifest.json
+PASS: Link exists: docs/ai/ai-log.md -> ../report/intermediate-report.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/README.md
+PASS: Link exists: docs/ai/ai-log.md -> ../../evidence/terminal/verification.txt
+PASS: Link exists: README.md -> instructions-1032980-17933293399497.pdf
+PASS: Link exists: README.md -> docs/README.md
+PASS: Link exists: README.md -> docs/notes/setup.md
+PASS: Link exists: README.md -> docs/report/intermediate-report.md
+PASS: Link exists: README.md -> docs/ai/ai-log.md
+PASS: Link exists: README.md -> docs/ai/handoff.md
+PASS: Link exists: README.md -> docs/notes/questions-and-answers.md
+PASS: Link exists: README.md -> evidence/README.md
+PASS: All nonblank student lines have comments: mesh.cpp
+PASS: Final snapshot unchanged: mesh.cpp
+PASS: Tested source hash matches: mesh.cpp
+PASS: All nonblank student lines have comments: pathtracer.cpp
+PASS: Final snapshot unchanged: pathtracer.cpp
+PASS: Tested source hash matches: pathtracer.cpp
+PASS: All nonblank student lines have comments: raytracer.cpp
+PASS: Final snapshot unchanged: raytracer.cpp
+PASS: Tested source hash matches: raytracer.cpp
+PASS: Restored ray image is byte-identical to initial B1 image
+PASS: No generated artifacts under docs/report/final
+PASS: No generated artifacts under docs/report/latex
+PASS: Run IDs unique
+PASS: All 50 recorded program runs exited successfully with no unfinished-task messages
+PASS: Image hash matches: P1-default
+PASS: Image hash matches: P2-default
+PASS: Image hash matches: P3-default
+PASS: Image hash matches: P1-depth-0
+PASS: Image hash matches: P1-depth-1
+PASS: Image hash matches: P1-depth-2
+PASS: Image hash matches: P1-depth-3
+PASS: Image hash matches: P1-depth-4
+PASS: Image hash matches: P1-eps-zero
+PASS: Image hash matches: P1-stage-1
+PASS: Image hash matches: P1-stage-2
+PASS: Image hash matches: P1-stage-3
+PASS: Image hash matches: P1-stage-4
+PASS: Image hash matches: P1-stage-5
+PASS: Image hash matches: P1-stage-6
+PASS: Image hash matches: P2-flat
+PASS: Image hash matches: P2-glass
+PASS: Image hash matches: P2-bvh
+PASS: Image hash matches: P2-median
+PASS: Image hash matches: P3-spp-64
+PASS: Image hash matches: P3-no-rr-64
+PASS: Image hash matches: P3-depth-1
+PASS: Image hash matches: P3-depth-2
+PASS: Image hash matches: P3-depth-3
+PASS: Image hash matches: P3-depth-5
+PASS: Image hash matches: P3-depth-10
+PASS: Image hash matches: P3-no-nee-16
+PASS: Image hash matches: P3-no-nee-256
+PASS: Image hash matches: P3-no-nee-1024
+PASS: Image hash matches: P3-spp-256
+PASS: Image hash matches: P1-tir-reflect
+PASS: Image hash matches: P1-skip-zero-weights
+PASS: Image hash matches: P2-cull-default
+PASS: Image hash matches: P2-cull-glass
+PASS: Image hash matches: P3-rr-first-bounce
+PASS: Image hash matches: P3-shadow-origin-trap
+PASS: Image hash matches: P2-16k-full-bvh
+PASS: Image hash matches: P3-no-nee-1792
+PASS: Image hash matches: P3-no-nee-1664
+PASS: Image hash matches: P1-transparent-shadows
+PASS: Image hash matches: P1-ior-one
+PASS: Image hash matches: P1-diagnose-tir
+PASS: Image hash matches: P1-restored
+PASS: Image hash matches: P3-depth-11
+PASS: Supplied reference unchanged: reference/mesh.png
+PASS: Supplied reference unchanged: reference/pathtrace.png
+PASS: Supplied reference unchanged: reference/pathtrace_ref.pfm
+PASS: Supplied reference unchanged: reference/raytrace.png

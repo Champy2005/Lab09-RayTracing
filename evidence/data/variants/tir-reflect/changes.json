@@ -1,0 +1,9 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "    vec3 direction; // refract writes this only if a real transmitted direction exists.",
+      "    vec3 direction; transmitted = reflected; // EXPERIMENT: redirect the TIR transmission weight into reflection."
+    ]
+  ]
+}

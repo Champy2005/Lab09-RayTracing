@@ -1,0 +1,13 @@
+Run: P1-stage-1
+Started: 2026-11-05T20:12:33+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/raytrace.exe --stage 1 --out evidence/images/part-1/P1-stage-1.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     4, 0.001
+  threads        24
+  time           2.4 ms
+  rays / pixel   1.000
+  saved          evidence/images/part-1/P1-stage-1.png
+
+Exit code: 0

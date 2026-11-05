@@ -1,0 +1,46 @@
+{
+  "raytrace": {
+    "mean_absolute_byte_difference": 0.0022534722222222222,
+    "fraction_changed_pixels": 0.00035833333333333333
+  },
+  "mesh": {
+    "mean_absolute_byte_difference": 0.002263888888888889,
+    "fraction_changed_pixels": 0.0003729166666666667
+  },
+  "pathtrace": {
+    "mean_absolute_byte_difference": 7.1188812255859375,
+    "fraction_changed_pixels": 0.90740966796875
+  },
+  "zero_weight_skip": {
+    "mean_absolute_byte_difference": 0.0,
+    "fraction_changed_pixels": 0.0
+  },
+  "bvh": {
+    "mean_absolute_byte_difference": 0.0,
+    "fraction_changed_pixels": 0.0
+  },
+  "cull_gold": {
+    "mean_absolute_byte_difference": 0.00754375,
+    "fraction_changed_pixels": 0.0023583333333333334
+  },
+  "cull_glass": {
+    "mean_absolute_byte_difference": 1.3967055555555556,
+    "fraction_changed_pixels": 0.048147916666666665
+  },
+  "tir_weight_fallback": {
+    "mean_absolute_byte_difference": 0.0,
+    "fraction_changed_pixels": 0.0
+  },
+  "restored": {
+    "mean_absolute_byte_difference": 0.0,
+    "fraction_changed_pixels": 0.0
+  },
+  "ior_one": {
+    "mean_absolute_byte_difference": 2.5067381944444445,
+    "fraction_changed_pixels": 0.05163333333333334
+  },
+  "transparent_shadows": {
+    "mean_absolute_byte_difference": 4.001838888888889,
+    "fraction_changed_pixels": 0.08405833333333333
+  }
+}

@@ -1,0 +1,16 @@
+Run: P3-shadow-origin-trap
+Started: 2026-11-05T20:15:27+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/experiments/shadow-origin-trap/pathtrace.exe --spp 64 --out evidence/images/part-3/P3-shadow-origin-trap.png
+
+  scene          Cornell box, 36 triangles, 256 x 256
+  options        depth 64, next event estimation on, Russian roulette on, eps 0.001
+  threads        24
+  spp            64
+  time           367.4 ms
+  rays / sample  5.04
+  mean           0.1387  (reference 0.1584)
+  RMSE           0.0336  against the 4096 spp reference, on the 99.2% of the pixels away from the lamp
+  saved          evidence/images/part-3/P3-shadow-origin-trap.png
+
+Exit code: 0

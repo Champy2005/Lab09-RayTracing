@@ -1,0 +1,7 @@
+MSBuild version 18.10.1-1.26427.6+3cd27c13e for .NET Framework
+
+  Checking File Globs
+  lab09core.vcxproj -> C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\lab09core.lib
+  mesh.vcxproj -> C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\mesh.exe
+  pathtrace.vcxproj -> C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\pathtrace.exe
+  raytrace.vcxproj -> C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing\build\Release\raytrace.exe

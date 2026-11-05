@@ -1,0 +1,205 @@
+PASS: Student prediction paragraph 1 preserved verbatim
+PASS: Student prediction paragraph 2 preserved verbatim
+PASS: Student prediction paragraph 3 preserved verbatim
+PASS: Student prediction paragraph 4 preserved verbatim
+PASS: Student prediction paragraph 5 preserved verbatim
+PASS: Later predictions are not represented as pre-measurement records
+PASS: All thirteen write-up sections present
+PASS: No scaffold placeholders in the refined report
+PASS: Report reference exists: ../../evidence/data/session-manifest.json
+PASS: Report reference exists: ../../evidence/terminal/build-release.txt
+PASS: Report reference exists: ../../evidence/terminal/verification.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-default.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-default.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-default.txt
+PASS: Report reference exists: ../../evidence/images/part-1/P1-default.png
+PASS: Report reference exists: ../../evidence/images/part-2/P2-default.png
+PASS: Report reference exists: ../../evidence/images/part-3/P3-default.png
+PASS: Report reference exists: ../../evidence/data/image-comparisons.json
+PASS: Report reference exists: ../../evidence/terminal/P1-probe.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-eps-zero.txt
+PASS: Report reference exists: ../../evidence/plots/ray-eps-tir.png
+PASS: Report reference exists: ../../evidence/terminal/P1-depth-0.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-depth-1.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-depth-2.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-depth-3.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-depth-4.txt
+PASS: Report reference exists: ../../evidence/data/variants/skip-zero-weights/changes.json
+PASS: Report reference exists: ../../evidence/terminal/P1-skip-zero-weights.txt
+PASS: Report reference exists: ../../evidence/data/variants/glass-ior-one/changes.json
+PASS: Report reference exists: ../../evidence/terminal/P1-restored.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-trace-wedge.txt
+PASS: Report reference exists: ../../evidence/terminal/P1-diagnose-tir.txt
+PASS: Report reference exists: ../../evidence/images/part-1/P1-ior-one.png
+PASS: Report reference exists: ../../evidence/plots/ray-stages.png
+PASS: Report reference exists: ../../evidence/data/mesh-sweep-raw.csv
+PASS: Report reference exists: ../../evidence/data/mesh-sweep-medians.csv
+PASS: Report reference exists: ../../evidence/data/fits.json
+PASS: Report reference exists: ../../evidence/plots/mesh-scaling.png
+PASS: Report reference exists: ../../evidence/tools/primary_800.cpp
+PASS: Report reference exists: ../../evidence/terminal/P2-primary-800.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-16k-full-bvh.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-flat.txt
+PASS: Report reference exists: ../../evidence/data/variants/cull-backfaces/changes.json
+PASS: Report reference exists: ../../evidence/terminal/P2-default.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-cull-default.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-glass.txt
+PASS: Report reference exists: ../../evidence/terminal/P2-cull-glass.txt
+PASS: Report reference exists: ../../evidence/plots/mesh-normals-culling.png
+PASS: Report reference exists: ../../evidence/terminal/P3-sweep-seed-0.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-sweep-seed-1.txt
+PASS: Report reference exists: ../../evidence/data/path-sweeps.csv
+PASS: Report reference exists: ../../evidence/plots/path-convergence.png
+PASS: Report reference exists: ../../evidence/terminal/P3-default.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-nee-16.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-nee-256.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-nee-1024.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-nee-1664.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-nee-1792.txt
+PASS: Report reference exists: ../../evidence/plots/path-comparisons.png
+PASS: Report reference exists: ../../evidence/terminal/P3-lamp-fraction.txt
+PASS: Report reference exists: ../../evidence/tools/lamp_fraction.cpp
+PASS: Report reference exists: ../../evidence/terminal/P3-spp-64.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-no-rr-64.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-rr-first-bounce.txt
+PASS: Report reference exists: ../../evidence/data/variants/rr-first-bounce/changes.json
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-1.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-2.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-3.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-5.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-10.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-spp-64.txt
+PASS: Report reference exists: ../../evidence/plots/path-depth.png
+PASS: Report reference exists: ../../evidence/terminal/P3-depth-11.txt
+PASS: Report reference exists: ../../evidence/data/variants/shadow-origin-trap/changes.json
+PASS: Report reference exists: ../../evidence/terminal/P3-spp-64.txt
+PASS: Report reference exists: ../../evidence/terminal/P3-shadow-origin-trap.txt
+PASS: Report reference exists: ../../evidence/images/part-3/P3-shadow-origin-trap.png
+PASS: Report reference exists: ../../evidence/README.md
+PASS: Report reference exists: ../../evidence/data/runs.jsonl
+PASS: Report reference exists: ../ai/ai-log.md
+PASS: All fifteen available prompt records collected once
+PASS: Original prompt text retained: AI-C-000
+PASS: Missing student verification is not invented: AI-C-000
+PASS: Original prompt text retained: AI-C-001
+PASS: Missing student verification is not invented: AI-C-001
+PASS: Original prompt text retained: AI-C-002
+PASS: Missing student verification is not invented: AI-C-002
+PASS: Original prompt text retained: AI-C-003
+PASS: Missing student verification is not invented: AI-C-003
+PASS: Original prompt text retained: AI-C-004
+PASS: Missing student verification is not invented: AI-C-004
+PASS: Original prompt text retained: AI-C-005
+PASS: Missing student verification is not invented: AI-C-005
+PASS: Original prompt text retained: AI-C-006
+PASS: Missing student verification is not invented: AI-C-006
+PASS: Original prompt text retained: AI-C-007
+PASS: Missing student verification is not invented: AI-C-007
+PASS: Original prompt text retained: AI-C-008
+PASS: Missing student verification is not invented: AI-C-008
+PASS: Original prompt text retained: AI-C-009
+PASS: Missing student verification is not invented: AI-C-009
+PASS: Original prompt text retained: AI-C-010
+PASS: Missing student verification is not invented: AI-C-010
+PASS: Original prompt text retained: AI-C-011
+PASS: Missing student verification is not invented: AI-C-011
+PASS: Original prompt text retained: AI-C-012
+PASS: Missing student verification is not invented: AI-C-012
+PASS: Original prompt text retained: AI-C-013
+PASS: Missing student verification is not invented: AI-C-013
+PASS: Original prompt text retained: AI-C-014
+PASS: Missing student verification is not invented: AI-C-014
+PASS: Executable implementation matches tested B1: mesh.cpp
+PASS: Executable implementation matches tested B1: pathtracer.cpp
+PASS: Executable implementation matches tested B1: raytracer.cpp
+PASS: Supplied reference unchanged: reference/mesh.png
+PASS: Supplied reference unchanged: reference/pathtrace.png
+PASS: Supplied reference unchanged: reference/pathtrace_ref.pfm
+PASS: Supplied reference unchanged: reference/raytrace.png
+PASS: Final LaTeX pass produced a PDF
+PASS: Final LaTeX pass has no overflow, font, or reference warnings
+PASS: PDF contains supplied student name and ID
+PASS: PDF includes AI record AI-C-000
+PASS: PDF includes AI record AI-C-001
+PASS: PDF includes AI record AI-C-002
+PASS: PDF includes AI record AI-C-003
+PASS: PDF includes AI record AI-C-004
+PASS: PDF includes AI record AI-C-005
+PASS: PDF includes AI record AI-C-006
+PASS: PDF includes AI record AI-C-007
+PASS: PDF includes AI record AI-C-008
+PASS: PDF includes AI record AI-C-009
+PASS: PDF includes AI record AI-C-010
+PASS: PDF includes AI record AI-C-011
+PASS: PDF includes AI record AI-C-012
+PASS: PDF includes AI record AI-C-013
+PASS: PDF includes AI record AI-C-014
+PASS: PDF retains key result 0.0206
+PASS: PDF retains key result 0.1584
+PASS: PDF retains key result 1792
+PASS: PDF retains key result 115912
+PASS: PDF retains key result 1600
+PASS: PDF page 1 is nonblank
+PASS: PDF page 1 has resolved total-page footer
+PASS: PDF page 2 is nonblank
+PASS: PDF page 2 has resolved total-page footer
+PASS: PDF page 3 is nonblank
+PASS: PDF page 3 has resolved total-page footer
+PASS: PDF page 4 is nonblank
+PASS: PDF page 4 has resolved total-page footer
+PASS: PDF page 5 is nonblank
+PASS: PDF page 5 has resolved total-page footer
+PASS: PDF page 6 is nonblank
+PASS: PDF page 6 has resolved total-page footer
+PASS: PDF page 7 is nonblank
+PASS: PDF page 7 has resolved total-page footer
+PASS: PDF page 8 is nonblank
+PASS: PDF page 8 has resolved total-page footer
+PASS: PDF page 9 is nonblank
+PASS: PDF page 9 has resolved total-page footer
+PASS: PDF page 10 is nonblank
+PASS: PDF page 10 has resolved total-page footer
+PASS: PDF page 11 is nonblank
+PASS: PDF page 11 has resolved total-page footer
+PASS: PDF page 12 is nonblank
+PASS: PDF page 12 has resolved total-page footer
+PASS: PDF page 13 is nonblank
+PASS: PDF page 13 has resolved total-page footer
+PASS: PDF page 14 is nonblank
+PASS: PDF page 14 has resolved total-page footer
+PASS: PDF page 15 is nonblank
+PASS: PDF page 15 has resolved total-page footer
+PASS: PDF page 16 is nonblank
+PASS: PDF page 16 has resolved total-page footer
+PASS: PDF page 17 is nonblank
+PASS: PDF page 17 has resolved total-page footer
+PASS: PDF page 18 is nonblank
+PASS: PDF page 18 has resolved total-page footer
+PASS: PDF page 19 is nonblank
+PASS: PDF page 19 has resolved total-page footer
+PASS: PDF page 20 is nonblank
+PASS: PDF page 20 has resolved total-page footer
+PASS: PDF page 21 is nonblank
+PASS: PDF page 21 has resolved total-page footer
+PASS: PDF page 22 is nonblank
+PASS: PDF page 22 has resolved total-page footer
+PASS: PDF page 23 is nonblank
+PASS: PDF page 23 has resolved total-page footer
+PASS: PDF page 24 is nonblank
+PASS: PDF page 24 has resolved total-page footer
+PASS: PDF page 25 is nonblank
+PASS: PDF page 25 has resolved total-page footer
+PASS: PDF page 26 is nonblank
+PASS: PDF page 26 has resolved total-page footer
+PASS: PDF page 27 is nonblank
+PASS: PDF page 27 has resolved total-page footer
+PASS: PDF page 28 is nonblank
+PASS: PDF page 28 has resolved total-page footer
+PASS: PDF page 29 is nonblank
+PASS: PDF page 29 has resolved total-page footer
+PASS: PDF page 30 is nonblank
+PASS: PDF page 30 has resolved total-page footer
+PASS: PDF page 31 is nonblank
+PASS: PDF page 31 has resolved total-page footer
+PASS: All 31 pages have text within horizontal page safety margins.
+PASS: Visual QA: rendered all pages with Poppler and reviewed page sheets and representative full pages.

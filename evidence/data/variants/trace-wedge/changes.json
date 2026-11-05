@@ -1,0 +1,17 @@
+{
+  "file": "raytracer.cpp",
+  "changes": [
+    [
+      "  return material.diffuse * (diffuse * material.albedo[0])",
+      "  const vec3 colour = material.diffuse * (diffuse * material.albedo[0])"
+    ],
+    [
+      "       + transmitted * material.albedo[3];",
+      "       + transmitted * material.albedo[3];\n  std::printf(\"depth %d hit (%g,%g,%g), ior %g, colour (%g,%g,%g), D %g, S %g, weights %g/%g/%g/%g, transmitted (%g,%g,%g)\\n\", depth, hit.p.x,hit.p.y,hit.p.z,material.ior,colour.x,colour.y,colour.z,diffuse,specular,material.albedo[0],material.albedo[1],material.albedo[2],material.albedo[3],transmitted.x,transmitted.y,transmitted.z);\n  return colour;"
+    ],
+    [
+      "#include <algorithm>",
+      "#include <cstdio>\n#include <algorithm>"
+    ]
+  ]
+}

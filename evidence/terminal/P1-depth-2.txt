@@ -1,0 +1,13 @@
+Run: P1-depth-2
+Started: 2026-11-05T20:12:33+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/raytrace.exe --depth 2 --out evidence/images/part-1/P1-depth-2.png
+
+  image          800 x 600, vertical fov 60 deg
+  depth, eps     2, 0.001
+  threads        24
+  time           5.5 ms
+  rays / pixel   5.173
+  saved          evidence/images/part-1/P1-depth-2.png
+
+Exit code: 0

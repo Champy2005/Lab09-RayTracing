@@ -1,0 +1,7 @@
+Command: build/validation/lamp_fraction.exe
+
+Cosine samples from (278, EPS, 278), seed 2468 stream 9: 200000
+Directions within lamp rectangle, ignoring occlusion: 2890 (1.445000%)
+Directions that hit lamp before other geometry: 2187 (1.093500%)
+
+Exit code: 0

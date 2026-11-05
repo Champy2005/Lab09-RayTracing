@@ -1,0 +1,15 @@
+Run: P2-16k-full-bvh
+Started: 2026-11-05T20:16:34+07:00
+Working directory: C:\Users\thana\Documents\Year3\Semester_i\CG\Lab09-RayTracing
+Command: build/Release/mesh.exe --tris 16k --bvh --out evidence/images/part-2/P2-16k-full-bvh.png
+
+  mesh           torus knot, 16384 triangles, smooth normals
+  bvh            sah split: 18047 nodes, 9024 leaves, depth 29, built in 23.7 ms
+  threads        24
+  time           91.0 ms
+  rays / pixel   10.867
+  tests / ray    3.3 triangle tests
+  nodes / ray    10.6 BVH nodes visited
+  saved          evidence/images/part-2/P2-16k-full-bvh.png
+
+Exit code: 0

@@ -1,0 +1,4 @@
+Mean face-normal dot outward vertex normal: 0.915272
+PASS: 115912 checks, 12000 BVH/brute rays, 100000 sampling/roulette trials.
+
+Exit code: 0
